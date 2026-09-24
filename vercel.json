@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/products", "destination": "/shop" },
+    { "source": "/batteries", "destination": "/shop" },
+    { "source": "/catalog", "destination": "/shop" },
+    { "source": "/catalogue", "destination": "/shop" },
+    { "source": "/battery", "destination": "/shop" },
+    { "source": "/batteries-for-sale", "destination": "/shop" },
+    { "source": "/admin-panel", "destination": "/admin" },
+    { "source": "/dashboard", "destination": "/admin" },
+    { "source": "/whatsapp", "destination": "https://wa.me/2348033314277" },
+    { "source": "/wa", "destination": "https://wa.me/2348033314277" },
+    { "source": "/call", "destination": "tel:+2348033314277" }
+  ]
+}

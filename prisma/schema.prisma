@@ -1,0 +1,86 @@
+// Prisma schema for ENERGY MAN Batteries
+// Supports SQLite locally and Postgres (Neon / Vercel Postgres) in production.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id                 String   @id @default(cuid())
+  slug               String   @unique
+  name               String
+  brand              String
+  model              String
+  category           String
+  subcategory        String?
+  price              Float
+  discountPrice      Float?
+  inStock            Boolean  @default(true)
+  voltage            String
+  capacity           String
+  cca                String?
+  batteryType        String
+  dimensions         String?
+  weight             String?
+  terminalType       String?
+  application        String?
+  warranty           String?
+  compatibilityNotes String?
+  manufacturer       String?
+  countryOfOrigin    String?
+  isFeatured         Boolean  @default(false)
+  isPublished        Boolean  @default(true)
+  sku                String   @unique
+  description        String
+  images             String   // Stored as JSON string array e.g. "[\"/images/p1.jpg\"]"
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Enquiry {
+  id                String   @id @default(cuid())
+  name              String
+  phone             String
+  whatsapp          String?
+  email             String?
+  productSlug       String?
+  productName       String?
+  quantity          Int      @default(1)
+  location          String?
+  preferredDelivery String?
+  message           String?
+  source            String   @default("product_page") // product_page, order_modal, contact_form
+  status            String   @default("New")          // New, Contacted, Awaiting Customer, Confirmed, Completed, Cancelled
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model SiteContent {
+  id                 String   @id @default("default")
+  phone              String   @default("+234 800 123 4567")
+  whatsapp           String   @default("+234 800 123 4567")
+  email              String   @default("info@energymanbatteries.com")
+  address            String   @default("Lagos, Nigeria — full address coming soon")
+  businessHours      String   @default("Monday – Saturday: 8:00 AM – 6:00 PM")
+  promoBannerText    String   @default("POWER YOUR JOURNEY — Quality automotive, solar and inverter batteries available now.")
+  promoBannerEnabled Boolean  @default(true)
+  heroHeadline       String   @default("Reliable Power Starts With the Right Battery")
+  heroSubheadline    String   @default("Discover quality batteries and power solutions for vehicles, solar systems, inverters, businesses and everyday power needs.")
+  aboutText          String   @default("At ENERGY MAN, we believe reliable power starts with the right battery. We are a battery sales and distribution company providing a wide range of power solutions for vehicles, solar systems, inverters, businesses and other applications.")
+  missionText        String   @default("To provide dependable battery and energy-storage solutions while making it simple for customers to find the right power product for their needs.")
+  visionText         String   @default("To become a trusted and recognized name in battery sales and power solutions, known for quality products, professional service and customer satisfaction.")
+  updatedAt          DateTime @updatedAt
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

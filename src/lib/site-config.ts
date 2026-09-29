@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   phoneRaw: '+2348033314277',
   whatsapp: '0803 331 4277',
   whatsappRaw: '2348033314277',
-  email: 'info@energyman.store',
+  email: 'enegrymanstore@gmail.com',
   address: 'No 1 Babajide Close, Bariga, Lagos',
   businessHours: 'Monday – Saturday: 8:00 AM – 6:00 PM',
 

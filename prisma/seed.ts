@@ -17,7 +17,7 @@ async function main() {
       id: 'default',
       phone: '0803 331 4277',
       whatsapp: '0803 331 4277',
-      email: 'info@energyman.store',
+      email: 'info@energyman.online',
       address: 'No 1 Babajide Close, Bariga, Lagos',
       businessHours: 'Monday – Saturday: 8:00 AM – 6:00 PM',
       promoBannerText:

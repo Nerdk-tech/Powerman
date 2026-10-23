@@ -55,7 +55,7 @@ const DDL: string[] = [
     "id" TEXT PRIMARY KEY DEFAULT 'default',
     "phone" TEXT NOT NULL DEFAULT '+234 800 123 4567',
     "whatsapp" TEXT NOT NULL DEFAULT '+234 800 123 4567',
-    "email" TEXT NOT NULL DEFAULT 'info@energyman.store',
+    "email" TEXT NOT NULL DEFAULT 'info@energyman.online',
     "address" TEXT NOT NULL DEFAULT 'Lagos, Nigeria',
     "businessHours" TEXT NOT NULL DEFAULT 'Monday - Saturday: 8:00 AM - 6:00 PM',
     "promoBannerText" TEXT NOT NULL DEFAULT '',
@@ -151,7 +151,7 @@ async function seedIfEmpty(client: PrismaClient): Promise<void> {
           id: 'default',
           phone: '0803 331 4277',
           whatsapp: '0803 331 4277',
-          email: 'info@energyman.store',
+          email: 'info@energyman.online',
           address: 'No 1 Babajide Close, Bariga, Lagos',
           businessHours: 'Monday – Saturday: 8:00 AM – 6:00 PM',
           promoBannerText:
@@ -198,7 +198,10 @@ async function applyRebrand(client: PrismaClient): Promise<void> {
     );
   }
   await client.$executeRawUnsafe(
-    `UPDATE "SiteContent" SET "email" = 'info@energyman.store' WHERE "email" = 'info@energymanbatteries.com'`
+    `UPDATE "SiteContent" SET "email" = 'info@energyman.online' WHERE "email" = 'info@energymanbatteries.com'`
+  );
+  await client.$executeRawUnsafe(
+    `UPDATE "SiteContent" SET "email" = 'info@energyman.online' WHERE "email" = 'info@energyman.store'`
   );
   await client.$executeRawUnsafe(
     `UPDATE "Enquiry" SET "productName" = REPLACE(REPLACE("productName", 'POWERMAN', 'ENERGY MAN'), 'Powerman', 'Energy Man') WHERE "productName" ILIKE '%powerman%'`

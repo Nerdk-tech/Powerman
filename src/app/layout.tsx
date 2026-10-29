@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PaymentLock from "@/components/PaymentLock";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 const geistSans = localFont({
@@ -43,7 +42,6 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <PaymentLock />
       </body>
     </html>
   );
